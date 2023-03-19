@@ -3,11 +3,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         int[][] test_matrix = {{29, 8, 37},{15, 41, 3},{1, 10, 14}};
-        System.out.println(spiralOrder(test_matrix));
+        List path = spiralOrder(test_matrix);
+        System.out.println(path.get(path.size()-1));
     }
     public static List<Integer> spiralOrder(int[][] matrix) {
         // recursive traversal
         List<Integer> list = new ArrayList<>();
+
         int m = matrix.length;
         // corner case
         if (m == 0) return list;
@@ -56,6 +58,7 @@ public class Main {
     }
     private static List<Integer> skipByOne(List<Integer> input) {
         List<Integer> result = new ArrayList<>();
+
         for (int i = 0; i < input.size(); i += 2) {
             result.add(input.get(i));
         }
