@@ -4,7 +4,7 @@ import java.sql.SQLOutput;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        String str = "ccccc";
+        String str = "";
         System.out.print("\nLength is: " + longestPalSubstr(str));
     }
 
@@ -12,8 +12,13 @@ public class Main {
     // Function to print a subString str[low..high]
     public static void printSubStr(String str, int low, int high)
     {
+        int len = str.length();
+        if(len == 0) {
+            System.out.println("none");
+        } else {
         for (int i = low; i <= high; ++i)
             System.out.print(str.charAt(i));
+        }
     }
 
     // This function prints the
@@ -28,7 +33,11 @@ public class Main {
         // All subStrings of length 1
         // are palindromes
         int maxLength = 1, start = 0;
-
+        while(str == ""){
+            System.out.print("Longest palindrome subString is \'\'");
+            maxLength = 0;
+            return maxLength;
+        }
         // Nested loop to mark start and end index
         for (int i = 0; i < str.length(); i++) {
             for (int j = i; j < str.length(); j++) {
