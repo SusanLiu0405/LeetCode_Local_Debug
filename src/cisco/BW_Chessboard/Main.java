@@ -2,13 +2,14 @@ package cisco.BW_Chessboard;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int n = 5;
+        System.out.println(chessboard(5));
     }
     public static List<List<Character>> chessboard(int n) {
         List<List<Character>> board = new ArrayList<>();
-// corner case
+        // corner case
         if (n <= 0) return board;
-// general case
+        // general case
         for (int i = 0; i < n; i++) {
             List<Character> rowAssignment = new ArrayList<>();
             for (int j = 0; j < n; j++) {
