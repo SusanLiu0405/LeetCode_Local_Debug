@@ -2,12 +2,13 @@ package cisco.Num189_Rotate_Array;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int[][] test_matrix = {{1,2,3}, {4,5,6}, {7,8,9}};
+        System.out.println(rotate(test_matrix));
     }
-    public void rotate(int[][] matrix) {
+    public static int[][] rotate(int[][] matrix) {
         int n = matrix.length;
         // corner case
-        if (n <= 1) return;
+        if (n <= 1) return matrix;
         // general case
         int round = n / 2;
         for (int level = 0; level < round; level++) {
@@ -21,5 +22,6 @@ public class Main {
                 matrix[i][n - 1 - left] = temp;
             }
         }
+        return matrix;
     }
 }
