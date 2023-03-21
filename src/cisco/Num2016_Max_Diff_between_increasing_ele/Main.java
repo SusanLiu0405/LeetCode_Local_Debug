@@ -1,5 +1,5 @@
 package cisco.Num2016_Max_Diff_between_increasing_ele;
-
+// 靠后的数字比靠前的数字大的情况下 输出最大的差值
 public class Main {
     public static void main(String[] args) {
         int[] test_array = {1,5,2,10};
