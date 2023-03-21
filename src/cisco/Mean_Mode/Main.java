@@ -2,9 +2,14 @@ package cisco.Mean_Mode;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int[] test_array={1,2,7,3,2};
+        System.out.println("mean= "+mean(test_array));
+        System.out.println("mode= "+mode(test_array));
     }
     public static double mean(int[] m) {
+        if(m.length == 0) {
+            return 0;
+        }
         double sum = 0;
         for (int j : m) {
             sum += j;
@@ -12,6 +17,9 @@ public class Main {
         return sum / m.length;
     }
     public static int mode(int[] a) {
+        if(a.length == 0) {
+            return 0;
+        }
         int maxFreq = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for (int i : a) {
