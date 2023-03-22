@@ -5,22 +5,22 @@ public class Main {
         System.out.println("Hello world!");
     }
     public static int dropPoints(int[] xCoordinate, int[] yCoordinate) {
-// corner case
+        // corner case
         if (xCoordinate == null || yCoordinate == null || xCoordinate.length ==
                 0 || yCoordinate.length == 0) return 0;
-// general case
+        // general case
         Map<Integer, Integer> xFreq = new HashMap<>(); // <xCoordinate, freq>
         Map<Integer, Integer> yFreq = new HashMap<>(); // <yCoordinate, freq>
         int xGlobalMaxFreq = 0;
         int yGlobalMaxFreq = 0;
-// traverse the x coordinates
+        // traverse the x coordinates
         for (int i : xCoordinate) {
             int freq = xFreq.getOrDefault(i, 0);
             freq++;
             xFreq.put(i, freq);
             xGlobalMaxFreq = Math.max(xGlobalMaxFreq, freq);
         }
-// traverse the y coordinates
+        // traverse the y coordinates
         for (int i : yCoordinate) {
             int freq = yFreq.getOrDefault(i, 0);
             freq++;
