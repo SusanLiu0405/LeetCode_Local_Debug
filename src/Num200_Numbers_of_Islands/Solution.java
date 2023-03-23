@@ -5,30 +5,34 @@ import java.util.LinkedList;
 public class Solution {
     boolean[][] enqueued;
     int[][] move = {{0,1},{0,-1},{1,0},{-1,0}};     // up, down, right, left
-    public void dfs(char[][] grid, int x, int y){
-        LinkedList <int[]> stack = new LinkedList<>();
-        stack.push(new int[]{x, y});
-        enqueued[x][y] = true;
-        int row = grid.length;
-        int col = grid[0].length;
 
-        while (!stack.isEmpty()) {
+    public void dfs(char[][] grid, int row, int col) {
+        LinkedList <int[]> stack = new LinkedList<>();
+        stack.push(new int[]{row, col});
+
+        int total_row = grid.length;
+        int total_col = grid[0].length;
+
+
+        enqueued[row][col] = true;
+        while(!stack.isEmpty()) {
+            //int[] cur = queue.poll();
             int[] cur = stack.pop();
             int m = cur[0];
             int n = cur[1];
-            for(int i = 0; i < 4; i++) {      // in all directions
-                int next_x = m + move[i][0];
-                int next_y = n + move[i][1];
-                if(next_x < 0 || next_y == row || next_y < 0 || next_x == col){
-                    continue;
+            for(int i = 0; i < 4; i++) {
+                int next_row = m + move[i][0];
+                int next_col = n + move[i][1];
+                if(next_col < 0 || next_row == total_row || next_row < 0 || next_col == total_col)
+                    continue; // 边界检查，新坐标是否在矩阵内。
+                if(!enqueued[next_row][next_col] && grid[next_row][next_col] == '1') {
+                    stack.push(new int[]{next_row, next_col});
                 }
-                if(!enqueued[next_x][next_y] && grid[next_x][next_y] == '1') {
-                    stack.push(new int[]{next_x, next_y});
-                }
-                enqueued[next_x][next_y] = true;
+                enqueued[next_row][next_col] = true; //只要加入队列就标记为访问
             }
         }
     }
+
     public int numIslands(char[][] grid) {
         int count = 0;
 
