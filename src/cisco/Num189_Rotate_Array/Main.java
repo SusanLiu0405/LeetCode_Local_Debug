@@ -34,7 +34,7 @@ public class Main {
         // 矩阵按照横轴上下翻转
         for(int i = 0; i < col; i++) {
             for (int j = 0; j < row; j++) {
-                reversed_matrix[i][j] = new_matrix[col - i - 1][j];
+                reversed_matrix[i][j] = new_matrix[i][row-1-j];
             }
         }
         return reversed_matrix;
